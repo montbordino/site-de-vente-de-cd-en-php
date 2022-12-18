@@ -1,0 +1,5 @@
+-- suppression des informations de la table CLIENT --
+DROP TABLE CLIENT;
+
+-- ajout de clients --
+INSERT INTO CLIENT VALUES('Tom', 'Montbord', 'montbordino@gmail.com', 'test');
