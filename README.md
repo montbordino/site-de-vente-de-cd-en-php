@@ -5,7 +5,7 @@ Ce projet est un site de vente en ligne de CD. Il est réalisé en PHP, HTML, CS
 Il est réalisé dans le but de mettre en œuvre toutes les compétences acquises pendant les tps de PHP.
 
 ## TODO
-- [ ] 1/13  Créer la base de données en local
+- [x] 1/13  Créer la base de données en local
 - [ ] 2/13  Se connecter à la base de données en PHP
 - [ ] 3/13  Créer une page de connexion pour les clients ( login et mot de passe )
 - [ ] 4/13  Créer une page d'inscription pour les clients
