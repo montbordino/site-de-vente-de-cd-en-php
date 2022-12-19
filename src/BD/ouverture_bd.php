@@ -5,9 +5,9 @@
      */
 
     try {
-        $conn_bd = new PDO('sqlite:'.dirname(__FILE__).'/BD');
-        $conn_bd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $conn_bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ERRMODE_WARNING | ERRMODE_EXCEPTION | ERRMODE_SILENT
+        $bd = new PDO('sqlite:'.dirname(__FILE__).'/BD');
+        $bd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ERRMODE_WARNING | ERRMODE_EXCEPTION | ERRMODE_SILENT
     } catch(Exception $e) {
         echo "Impossible d'accéder à la base de données SQLite : " . $e->getMessage();
         die();
@@ -19,10 +19,10 @@
      * Teste la connexion à la base de données.
      */
     function testBD() {
-        global $conn_bd;
+        global $bd;
 
         $sql = "SELECT * FROM CLIENT";
-        $stmt = $conn_bd->prepare($sql);
+        $stmt = $bd->prepare($sql);
 
         $stmt->execute();
 
