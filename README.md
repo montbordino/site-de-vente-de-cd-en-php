@@ -18,3 +18,7 @@ Il est réalisé dans le but de mettre en œuvre toutes les compétences acquise
 - [ ] 11/13 Créer la page de création d'un cd
 - [ ] 12/13 Passer la base de données sur lakarxela
 - [ ] 13/13 Connecter le site à la base de données sur lakarxela
+
+## Améliorations possibles
+
+- améliorer la page de connexion (voir mdp, changer de mdp, messages d'erreur)
