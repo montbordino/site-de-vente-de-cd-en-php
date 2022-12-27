@@ -8,6 +8,7 @@
     <title>page de connexion</title>
 </head>
 <body>
+    <?php include_once('header.php'); ?>
     <div class="centre">
         <form action="connexion.php" method="post">
             <label for="email">email</label>
@@ -29,8 +30,7 @@
      * s'il a coché la case "se souvenir de moi" on ajoute son email dans le cookie $_COOKIE['email'] pendant une heure
      * sinon on lui affiche un message d'erreure.
      */
-
-    session_start();
+    
     // ouverture de la base de données utilisable avec '$bd'
     require_once('../BD/ouverture_bd.php');
 

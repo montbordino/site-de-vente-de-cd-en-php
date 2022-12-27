@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../../public/scss/connexion.css">
 </head>
 <body>
+    <?php include_once('header.php'); ?>
     <div class="centre">
         <form action="creation_compte.php" method="post">
             <label for="nom">nom</label>
