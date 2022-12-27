@@ -1,0 +1,43 @@
+@import "remiseZero.scss";
+@import "variables.scss";
+
+header {
+  background: $bleu;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+
+  .logo {
+    img {
+      height: 50px;
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+
+      li {
+        margin-left: 20px;
+
+        a {
+          color: #333;
+          &:hover {
+            color: darken($bleu, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .login-info {
+    a {
+      text-decoration: none;
+      color: #333;
+      &:hover {
+        color: #00bcd4;
+      }
+    }
+  }
+}
