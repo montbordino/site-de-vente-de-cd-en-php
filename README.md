@@ -6,9 +6,9 @@ Il est réalisé dans le but de mettre en œuvre toutes les compétences acquise
 
 ## TODO
 - [x] 1/13  Créer la base de données en local
-- [ ] 2/13  Se connecter à la base de données en PHP
-- [ ] 3/13  Créer une page de connexion pour les clients ( login et mot de passe )
-- [ ] 4/13  Créer une page d'inscription pour les clients
+- [x] 2/13  Se connecter à la base de données en PHP
+- [x] 3/13  Créer une page de connexion pour les clients ( login et mot de passe )
+- [x] 4/13  Créer une page d'inscription pour les clients
 - [ ] 5/13  Créer la page d'accueil
 - [ ] 6/13  Remplir la page d'accueil avec les informations de la base de données
 - [ ] 7/13  Créer la page de détail d'un CD
