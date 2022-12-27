@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../../public/scss/connexion.css">
     <title>page de connexion</title>
 </head>
 <body>
-    <form action="connexion.php" method="post">
-        <label for="email">email</label>
-        <input type="email" name="email" id="email" required value="<?php echo $_POST['email'] ?? ''?>"> <br>
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password" required value="<?php echo $_POST['password'] ?? ''?>"> <br>
-        <input type="checkbox" name="remember" id="remember">
-        <label for="remember">Se souvenir de moi</label> <br>
-        <input type="submit" name="submit" value="Connexion">
-    </form>
+    <div class="centre">
+        <form action="connexion.php" method="post">
+            <label for="email">email</label>
+            <input type="email" name="email" id="email" required value="<?php echo $_POST['email'] ?? ''?>"> <br>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" required value="<?php echo $_POST['password'] ?? ''?>"> <br>
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Se souvenir de moi</label> <br>
+            <input type="submit" name="submit" value="Connexion">
+        </form>
+    </div>
 </body>
 </html>
 

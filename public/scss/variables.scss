@@ -1,0 +1,12 @@
+$bleu: #006896;
+$bleu-clair: #87CEEB;
+$noir: #222;
+$blanc: #eee;
+
+@function text-color($couleur: $blanc) {
+  @if lightness($couleur) > 50% {
+    @return $noir;
+  } @else {
+    @return $blanc;
+  }
+}

@@ -2,25 +2,27 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>création compte</title>
+    <link rel="stylesheet" type="text/css" href="../../public/scss/connexion.css">
 </head>
 <body>
-<form action="creation_compte.php" method="post">
-    <label for="nom">nom</label>
-    <input type="text" name="nom" id="nom" value="<?php echo $_POST['nom'] ?? "" ?>" required> <br>
-    <label for="prenom">prenom</label>
-    <input type="text" name="prenom" id="prenom" value="<?php echo $_POST['prenom'] ?? "" ?>" required> <br>
-    <label for="email">email</label>
-    <input type="email" name="email" id="email" value="<?php echo $_POST['email'] ?? "" ?>" required> <br>
-    <label for="password">Mot de passe</label>
-    <input type="password" name="password" id="password" value="<?php echo $_POST['password'] ?? "" ?>" required> <br>
-    <label for="password2">Confirmation du mot de passe</label>
-    <input type="password" name="password2" id="password2" value="<?php echo $_POST['password2'] ?? "" ?>" required> <br>
-    <input type="submit" name="submit" value="Créer le compte">
-
+    <div class="centre">
+        <form action="creation_compte.php" method="post">
+            <label for="nom">nom</label>
+            <input type="text" name="nom" id="nom" value="<?php echo $_POST['nom'] ?? "" ?>" required> <br>
+            <label for="prenom">prenom</label>
+            <input type="text" name="prenom" id="prenom" value="<?php echo $_POST['prenom'] ?? "" ?>" required> <br>
+            <label for="email">email</label>
+            <input type="email" name="email" id="email" value="<?php echo $_POST['email'] ?? "" ?>" required> <br>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" value="<?php echo $_POST['password'] ?? "" ?>" required> <br>
+            <label for="password2">Confirmation du mot de passe</label>
+            <input type="password" name="password2" id="password2" value="<?php echo $_POST['password2'] ?? "" ?>" required> <br>
+            <input type="submit" name="submit" value="Créer le compte">
+        </form>
+    </div>
 </body>
 </html>
 

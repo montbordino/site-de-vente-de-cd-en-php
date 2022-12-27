@@ -1,0 +1,62 @@
+@import "variables";
+
+.centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+body {
+  background-color: $blanc;
+  font-family: sans-serif;
+  color: text-color($blanc);
+
+  @media screen and (max-width: 600px) {
+    background-color: $bleu-clair;
+    color: text-color($bleu-clair);
+  }
+}
+
+form {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  background-color: $bleu-clair;
+  border-radius: 5px;
+
+  @media screen and (min-width: 600px) {
+    width: 50%;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid $noir;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: $bleu;
+  color: text-color($bleu);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+  background-color: darken($bleu, 10%);
+}
