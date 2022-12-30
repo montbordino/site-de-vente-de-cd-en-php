@@ -25,10 +25,13 @@
 
 <?php
     /**
-     * Ce code php verifie si l'utilisateur existe dans la base de données
+     * @BUT: Ce code php verifie si l'utilisateur existe dans la base de données
      * si oui on le connecte en ajoutant son email dans la variable de session $_SESSION['email'] et on le redirige vers la page d'accueil
      * s'il a coché la case "se souvenir de moi" on ajoute son email dans le cookie $_COOKIE['email'] pendant une heure
      * sinon on lui affiche un message d'erreure.
+     *
+     * @input : aucune variable de session n'est requise
+     * @return: $_SESSION['email'] et ou $_COOKIES['email']
      */
     
     // ouverture de la base de données utilisable avec '$bd'
