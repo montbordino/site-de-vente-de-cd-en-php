@@ -1,5 +1,5 @@
 <?php
-// cette page à pour but d'accueil l'utilisateur et de lui présenter le site, il n'a pas besoin de se connecter pour y accéder
+// cette page à pour but d'accueillir l'utilisateur et de lui présenter le site, il n'a pas besoin de se connecter pour y accéder
 
 include_once('src/php/header.php');
 ?>
