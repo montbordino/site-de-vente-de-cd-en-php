@@ -1,12 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  color: #222;
 }
 
 ul {
   list-style: none;
 }
-ul a {
+
+a {
   text-decoration: none;
 }
 
@@ -29,6 +31,7 @@ ul a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 .sous-header .contenu h1 {
   color: #eee;
@@ -39,6 +42,18 @@ ul a {
   color: #eee;
   font-size: 1.5rem;
   text-align: center;
+}
+
+button {
+  padding: 1em;
+  background-color: #006896;
+  border-radius: 2em;
+  border: none;
+  margin: auto;
+  cursor: pointer;
+}
+button:hover {
+  background: #008bc9;
 }
 
 /*# sourceMappingURL=index.css.map */

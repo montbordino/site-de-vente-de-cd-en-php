@@ -23,6 +23,8 @@ include_once('src/php/header.php');
             <h1>Bienvenue</h1>
             <br> <br>
             <p>Si vous cherchez des cd vous êtes au bon endroit</p>
+            <br> <br>
+            <a href="shop.php"><button> commencer mes achats </button></a>
         </div>
     </div>
 </body>
