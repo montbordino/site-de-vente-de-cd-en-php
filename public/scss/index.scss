@@ -3,8 +3,9 @@
 
 .sous-header{
   width: 100%;
-  height: 60vh;
+  height: calc(100vh - 90px); // 90px -> taille du header
   position: relative;
+  overflow: hidden;
 
   .bg img {
     width: 100%;  // l'image prendra toute la place disponible dans .sous-header
@@ -12,6 +13,9 @@
     object-fit: cover;
     position: absolute;
     z-index: -1; // permet de mettre l'image en arrière plan
+
+    // suppression de l'effet de flou sur les bords de l'image (le overflow: hidden permet de ne pas déborder)
+    transform: scale(1.05);
 
     // floute l'image de fond
     filter: blur(4px);
@@ -51,3 +55,65 @@ button {
     background: lighten($bleu, 10%);
   }
 }
+
+main {
+  aside {
+    box-sizing: border-box;
+    margin: 0.5em;
+    float: left;
+    width: calc(30% - 1em);
+    height: 100%;
+    background-color: $bleu-clair;
+    padding: 0.5em;
+    border-radius: 1em;
+  }
+  #content {
+    box-sizing: border-box;
+    float: right;
+    width: 70%;
+    height: 100%;
+    background-color: $blanc;
+    padding: 1em;
+  }
+}
+
+main{
+  #parametres{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 2em 1em;
+  }
+
+  input[type="text"]{
+    width: 100%;
+    height: 2rem;
+    background-color: $blanc;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  #produits{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1em;
+    padding: 1em;
+    .article {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border-radius: 1em;
+      padding: 1em;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+      text-align: center;
+
+      &:hover {
+        background: $gris-clair;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+  }
+}
+
