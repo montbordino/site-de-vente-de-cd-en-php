@@ -3,7 +3,29 @@
 $bleu: #006896;
 $bleu-clair: #87CEEB;
 $noir: #222;
-$blanc: #eee;
+$blanc: #FFF;
+$gris-clair: #F5F5F5;
+
+// modifie les paramètres par défaut de css
+
+*{
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+ul{
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+
+    background-color: $blanc;
+}
 
 // choisis la couleur de texte en fonction de la couleur de fond
 @function text-color($couleur: $blanc) {
