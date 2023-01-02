@@ -12,6 +12,24 @@ a {
   text-decoration: none;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #FFF;
+}
+
 header {
   background: #006896;
   display: flex;

@@ -1,3 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #FFF;
+}
+
 .centre {
   display: flex;
   justify-content: center;
@@ -6,7 +24,7 @@
 }
 
 body {
-  background-color: #eee;
+  background-color: #FFF;
   font-family: sans-serif;
   color: #222;
 }
@@ -50,7 +68,7 @@ input[type=email] {
 input[type=submit] {
   width: 100%;
   background-color: #006896;
-  color: #eee;
+  color: #FFF;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
