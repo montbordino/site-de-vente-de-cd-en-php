@@ -1,4 +1,14 @@
 <?php
+// permet d'ajouter facilement un cd à la base de données
+// prévient contre les erreurs suivantes :
+// - erreur de connexion à la base de données
+// - tous les champs ne sont pas remplis
+// - l'image n'est pas une image
+// - l'image est déjà dans la base de données
+
+
+
+
     include_once('../BD/ouverture_bd.php');
 ?>
 
