@@ -48,4 +48,28 @@ header .login-info a {
   color: #333;
 }
 
+#affichage {
+  position: absolute;
+  top: 94px;
+  width: 100%;
+  height: 50px;
+  transform: scale(0);
+  text-align: center;
+  font-size: 1.5em;
+  padding: 10px 0;
+  transition: all 0.5s ease;
+}
+
+.erreur {
+  background: red;
+  color: white;
+  transform: scale(1) !important;
+}
+
+.succes {
+  background: green;
+  color: white;
+  transform: scale(1) !important;
+}
+
 /*# sourceMappingURL=header.css.map */

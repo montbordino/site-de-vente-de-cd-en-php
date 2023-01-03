@@ -49,3 +49,20 @@
         </div>
     </nav>
 </header>
+<?php
+    echo '<div id="affichage"></div>';
+    if (isset($_GET['erreur'])) {
+        echo '<script>document.getElementById("affichage").classList.add("erreur");</script>';
+        echo '<script>document.getElementById("affichage").innerHTML = "Erreur : ' . $_GET['erreur'] . '";</script>';
+        echo '<script>setTimeout(function() { document.getElementById("affichage").classList.remove("erreur"); 
+                                              document.getElementById("affichage").style.visibility = "hidden";}, 3000);</script>';
+        unset($_GET['erreur']);
+    }
+    if (isset($_GET['succes'])) {
+        echo '<script>document.getElementById("affichage").classList.add("succes");</script>';
+        echo '<script>document.getElementById("affichage").innerHTML = "Succès : ' . $_GET['succes'] . '";</script>';
+        echo '<script>setTimeout(function() { document.getElementById("affichage").classList.remove("succes"); 
+                                              document.getElementById("affichage").style.visibility = "hidden";}, 3000);</script>';
+        unset($_GET['erreur']);
+    }
+?>

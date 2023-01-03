@@ -24,13 +24,9 @@
                 $requete->execute();
                 $resultat = $requete->fetch(PDO::FETCH_ASSOC);
 
-
-
-                ////////////////////////////////////////////////////////////////////:::::
-                /// /////////in complet
                 if($resultat){
                     // L'article est déjà dans le panier
-                    $requete = $bd->prepare("UPDATE PANIER SET QUANTITE = QUANTITE + :quantite WHERE ID_CLIENT = :id_client AND ID_CD = :id_article");
+                    $requete = $bd->prepare("UPDATE PANIER SET QUANTITE = QUANTITE + :quantite WHERE ID_CLIENT = :id_client AND ID_CD = :id_cd");
                 } else {
                     // L'article n'est pas dans le panier
                     $requete = $bd->prepare("INSERT INTO PANIER (ID_CLIENT, ID_CD, QUANTITE) VALUES (:id_client, :id_cd, :quantite)");
@@ -39,7 +35,14 @@
                 $requete->bindParam(":id_cd", $_POST["id"]);
                 $requete->bindParam(":quantite", $_POST["quantite"]);
                 $requete->execute();
-                header("Location: ../php/detail_cd.php?id=" . $_POST["id"] . "&message=Article ajouté au panier");
+
+                // on retire la quantité de l'article ajouté au panier de la quantité en stock
+                $requete = $bd->prepare("UPDATE CD SET QUANTITE = QUANTITE - :quantite WHERE ID = :id_cd");
+                $requete->bindParam(":id_cd", $_POST["id"]);
+                $requete->bindParam(":quantite", $_POST["quantite"]);
+                $requete->execute();
+
+                header("Location: ../php/detail_cd.php?id=" . $_POST["id"] . "&succes=Article ajoute au panier");
             }
         }
         else{

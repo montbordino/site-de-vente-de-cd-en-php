@@ -25,6 +25,7 @@ main {
   max-width: 1000px;
   margin: 0 auto;
   align-items: center;
+  gap: 1em;
 }
 main img {
   border: 3px solid #F5F5F5;
