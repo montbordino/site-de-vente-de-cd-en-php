@@ -10,8 +10,8 @@ Il est réalisé dans le but de mettre en œuvre toutes les compétences acquise
 - [x] 3/13  Créer une page de connexion pour les clients ( login et mot de passe )
 - [x] 4/13  Créer une page d'inscription pour les clients
 - [x] 5/13  Créer la page d'accueil
-- [ ] 6/13  Remplir la page d'accueil avec les informations de la base de données
-- [ ] 7/13  Créer la page de détail d'un CD
+- [x] 6/13  Remplir la page d'accueil avec les informations de la base de données
+- [x] 7/13  Créer la page de détail d'un CD
 - [ ] 8/13  Créer la page de panier
 - [ ] 9/13  Créer la page de paiement
 - [ ] 10/13 Créer la page de confirmation de paiement
