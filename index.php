@@ -78,7 +78,8 @@ require_once('src/BD/ouverture_bd.php');
                     $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($resultat as $cd) {
                         echo '<div class="article">';
-                            echo '<a href="src/php/detail_cd.php?id="' . $cd['ID'] . '>';
+                            $lien = 'src/php/detail_cd.php?id=' . $cd["ID"];
+                            echo '<a href=' . $lien . '>';
                                 echo '<h3>' . $cd['TITRE'] . '</h3>';
                                 echo '<img src=' . $cd['IMAGE'] .' alt="couverture du cd" width="200px">';
                                 echo '<p>' . $cd['ARTISTE'] . '</p>';
