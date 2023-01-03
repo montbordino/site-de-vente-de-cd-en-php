@@ -72,24 +72,18 @@ require_once('src/BD/ouverture_bd.php');
             <input type="text" placeholder="cherchez un titre">
 
             <section id="produits">
-                <!-- exemple de la structure d'un produit
-                <div class="article">
-                    <img src="//unsplash.it/300/300">                    <h3>Titre</h3>
-                    <p>Artiste</p>
-                    <p>Prix</p>
-                    <button>Ajouter au panier</button>
-                </div>
-                -->
                 <?php
                 if (!empty($bd)) { // si l'ouverture de la base de données a réussi
                     $requete = $bd->query('SELECT * FROM CD');
                     $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($resultat as $cd) {
                         echo '<div class="article">';
-                            echo '<h3>' . $cd['TITRE'] . '</h3>';
-                            echo '<img src=' . $cd['IMAGE'] .' alt="couverture du cd" width="200px">';
-                            echo '<p>' . $cd['ARTISTE'] . '</p>';
-                            echo '<p>' . $cd['PRIX'] . '€</p>';
+                            echo '<a href="src/php/detail_cd.php?id="' . $cd['ID'] . '>';
+                                echo '<h3>' . $cd['TITRE'] . '</h3>';
+                                echo '<img src=' . $cd['IMAGE'] .' alt="couverture du cd" width="200px">';
+                                echo '<p>' . $cd['ARTISTE'] . '</p>';
+                                echo '<p>' . $cd['PRIX'] . '€</p>';
+                            echo '</a>';
                         echo '</div>';
                     }
                 }
