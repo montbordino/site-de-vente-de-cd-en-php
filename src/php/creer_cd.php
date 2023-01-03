@@ -14,11 +14,11 @@
 <body>
 <h1>Créer un cd</h1>
 <form action="" method="post" enctype="multipart/form-data">
-    Titre: <input type="text" name="titre"><br>
-    Artiste: <input type="text" name="artiste"><br>
+    Titre: <input type="text" name="titre" required><br>
+    Artiste: <input type="text" name="artiste" required><br>
     Image: <input type="file" name="image" required><br>
-    Prix: <input type="text" name="prix"><br>
-    Quantité: <input type="text" name="quantite"><br>
+    Prix: <input type="text" name="prix" required><br>
+    Quantité: <input type="text" name="quantite" required><br>
         <?php // affichage des genres avec la base de données
             if (!empty($bd)){
                 echo "Genre : <select name='genre'>"; // on créé la liste déroulante en php pour verifier si la base de données est ouverte avant
@@ -50,26 +50,37 @@ if (isset($_POST['Envoyer'])) {
     // Vérification de l'extension de l'image
     $extension = pathinfo($_FILES['image']["name"], PATHINFO_EXTENSION);
     if (in_array($extension, array('jpg', 'jpeg', 'png', 'gif', 'jfif'))) {
-        print_r($_FILES['image']);
-        // Récupération de l'image
-        $image = file_get_contents($_FILES['image']['tmp_name']);
-        // conversion de l'image pour l'envoyer dans la base de données
-        $image_blob = addslashes($image);
+        $direction = "../../public/images/couverture/" . basename($_FILES["image"]["name"]);
 
-        if (!empty($bd)) { // si l'ouverture de la base de données a réussi
-            // ajout de l'image dans la base de données
-            $stmt = $bd->prepare("INSERT INTO CD (titre, artiste, image, image_type, prix, quantite, genre) VALUES (:titre, :artiste, :image, :image_type, :prix, :quantite, :genre)");
-            $stmt->bindParam(':titre', $titre);
-            $stmt->bindParam(':artiste', $artiste);
-            $stmt->bindParam(':image', $image_blob);
-            $stmt->bindParam(':image_type', $extension);
-            $stmt->bindParam(':prix', $prix);
-            $stmt->bindParam(':quantite', $quantite);
-            $stmt->bindParam(':genre', $genre);
-            $stmt->execute();
-            echo "Le cd a été ajouté";
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $direction)) {
+            // l'image a été téléchargée avec succès
+            $direction = str_replace("../../", "", $direction); // chemin relatif de l'image pour index.php
+            if (!empty($bd)) { // si l'ouverture de la base de données a réussi
+                // test si le cd existe déjà
+                $stmt = $bd->prepare("SELECT * FROM cd WHERE TITRE = :titre AND ARTISTE = :artiste");
+                $stmt->bindParam(':titre', $titre);
+                $stmt->bindParam(':artiste', $artiste);
+                $stmt->execute();
+                $cd = $stmt->fetch();
+                if ($cd) { // si le cd existe déjà
+                    echo "Ce cd existe déjà";
+                } else { // si le cd n'existe pas
+                    // ajout de l'image dans la base de données
+                    $stmt = $bd->prepare("INSERT INTO CD (titre, artiste, image, prix, quantite, genre) VALUES (:titre, :artiste, :image, :prix, :quantite, :genre)");
+                    $stmt->bindParam(':titre', $titre);
+                    $stmt->bindParam(':artiste', $artiste);
+                    $stmt->bindParam(':image', $direction);
+                    $stmt->bindParam(':prix', $prix);
+                    $stmt->bindParam(':quantite', $quantite);
+                    $stmt->bindParam(':genre', $genre);
+                    $stmt->execute();
+                    echo "Le cd a été ajouté avec l'image suivante: <br>";
+                }
+            } else {
+                echo "Erreur d'ouverture de la base de données";
+            }
         } else {
-            echo "Erreur d'ouverture de la base de données";
+            echo "Erreur lors du téléchargement de l'image";
         }
     }
     else {
