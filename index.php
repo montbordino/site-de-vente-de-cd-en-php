@@ -2,6 +2,7 @@
 // cette page à pour but d'accueillir l'utilisateur et de lui présenter le site, il n'a pas besoin de se connecter pour y accéder
 
 include_once('src/php/header.php');
+require_once('src/BD/ouverture_bd.php');
 ?>
 
 <!doctype html>
@@ -24,11 +25,11 @@ include_once('src/php/header.php');
             <br> <br>
             <p>Si vous cherchez des cd vous êtes au bon endroit</p>
             <br> <br>
-            <a href="src/php/shop.php"><button> commencer mes achats </button></a>
+            <a href="#main"><button> commencer mes achats </button></a>
         </div>
     </div>
 
-    <main>
+    <main id="main">
         <aside>
             <h2>Filtres</h2>
             <form>
@@ -79,7 +80,23 @@ include_once('src/php/header.php');
                     <button>Ajouter au panier</button>
                 </div>
                 -->
-
+                <?php
+                if (!empty($bd)) { // si l'ouverture de la base de données a réussi
+                    $requete = $bd->query('SELECT * FROM CD');
+                    $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($resultat as $cd) {
+                        echo '<div class="article">';
+                            echo '<h3>' . $cd['TITRE'] . '</h3>';
+                            echo '<img src=' . $cd['IMAGE'] .' alt="couverture du cd" width="200px">';
+                            echo '<p>' . $cd['ARTISTE'] . '</p>';
+                            echo '<p>' . $cd['PRIX'] . '€</p>';
+                        echo '</div>';
+                    }
+                }
+                else {
+                    echo 'erreur de connexion à la base de données';
+                }
+                ?>
 
             </section>
         </div>
