@@ -19,11 +19,7 @@
             <label for="remember">Se souvenir de moi</label> <br>
             <input type="submit" name="submit" value="Connexion">
         </form>
-    </div>
-</body>
-</html>
-
-<?php
+        <?php
     /**
      * @BUT: Ce code php verifie si l'utilisateur existe dans la base de données
      * si oui on le connecte en ajoutant son email dans la variable de session $_SESSION['email'] et on le redirige vers la page d'accueil
@@ -33,7 +29,7 @@
      * @input : aucune variable de session n'est requise
      * @return: $_SESSION['email'] et ou $_COOKIES['email']
      */
-    
+
     // ouverture de la base de données utilisable avec '$bd'
     require_once('../BD/ouverture_bd.php');
 
@@ -55,12 +51,12 @@
         if(count($result) == 1){
                 // on ajoute l'email et l'id dans des variables de session
                 $_SESSION["email"] = $email;
-                $_SESSION["id"] = $result[0]["ID_CLIENT"];
+                $_SESSION["id"] = $result[0]["ID"];
                 // si l'utilisateur a coché la case "se souvenir de moi"
                 if(!empty($_POST["remember"])) {
                     // on ajoute l'email dans le cookie
                     setcookie("email", $email, time() + 3600);
-                    setcookie("id", $result[0]["ID_CLIENT"], time() + 3600);
+                    setcookie("id", $result[0]["ID"], time() + 3600);
                 }
                 // on redirige vers la page d'accueil
                 header("Location: ../../index.php");
@@ -69,5 +65,8 @@
             var_dump($result);
             echo "adresse mail ou mot de passe incorrect";
         }
-    }
+    } ?>
+    </div>
+</body>
+</html>
 

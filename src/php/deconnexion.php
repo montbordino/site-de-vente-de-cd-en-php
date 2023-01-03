@@ -11,5 +11,8 @@
     session_destroy();
     if (isset($_COOKIE["email"])){
         unset($_COOKIE['email']);
+        setcookie('email', '', time() - 3600);
+        unset($_COOKIE['id']);
+        setcookie('id', '', time() - 3600);
     }
     header("Location: ../../index.php");

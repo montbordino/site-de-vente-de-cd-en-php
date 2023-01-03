@@ -2,7 +2,11 @@
     <link rel="stylesheet" type="text/css" href="../../public/scss/header.css">
     <div class="logo">
         <?php
-            session_start();
+            if(session_status() != PHP_SESSION_ACTIVE){
+                if(isset($_SESSION['id'])){
+                    session_start();
+                }
+            }
 
             $emplacement = debug_backtrace()[0]['file']; // path absolut du fichier appelant header.php
             $dernier_dir = basename(dirname($emplacement)); // dossier contenant le fichier appelant header.php
@@ -22,7 +26,9 @@
     </nav>
     <div class="login-info">
         <?php
-
+        if(session_status() == PHP_SESSION_NONE){
+            session_start();
+        }
         if (isset($_SESSION['email']) || isset($_COOKIE['email'])) {
             if (isset($_COOKIE['email'])) { // si l'utilisateur a coché la case "se souvenir de moi"
                 $_SESSION['email'] = $_COOKIE['email'];
