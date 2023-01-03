@@ -3,7 +3,19 @@
 
 include_once('src/php/header.php');
 require_once('src/BD/ouverture_bd.php');
+
 ?>
+<script>
+    // ce script garde la position de scroll de la page lors du chargement de la page.
+    document.addEventListener("DOMContentLoaded", function() {
+        var posY = localStorage.getItem('posY');
+        if (posY) window.scrollTo(0, posY);
+    });
+
+    window.onbeforeunload = function() {
+        localStorage.setItem('posY', window.scrollY);
+    };
+</script>
 
 <!doctype html>
 <html lang="fr">
@@ -69,7 +81,11 @@ require_once('src/BD/ouverture_bd.php');
             </form>
         </aside>
         <div id="content">
-            <input type="text" placeholder="cherchez un titre">
+            <form id="formulaire-recherche" method="post">
+                <label for="recherche">Recherche</label>
+                <input type="text" name="recherche" id="recherche">
+                <input type="submit" value="Rechercher" onclick="location.reload()">
+            </form>
 
             <section id="produits">
                 <?php
@@ -80,6 +96,7 @@ require_once('src/BD/ouverture_bd.php');
                         echo '<div class="article">';
                             $lien = 'src/php/detail_cd.php?id=' . $cd["ID"];
                             echo '<a href=' . $lien . '>';
+                                echo '<div class="filtre"></div>';
                                 echo '<h3>' . $cd['TITRE'] . '</h3>';
                                 echo '<img src=' . $cd['IMAGE'] .' alt="couverture du cd" width="200px">';
                                 echo '<p>' . $cd['ARTISTE'] . '</p>';
@@ -88,11 +105,11 @@ require_once('src/BD/ouverture_bd.php');
                         echo '</div>';
                     }
                 }
+
                 else {
                     echo 'erreur de connexion à la base de données';
                 }
                 ?>
-
             </section>
         </div>
     </main>

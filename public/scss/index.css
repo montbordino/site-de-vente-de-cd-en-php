@@ -81,6 +81,24 @@ main #content {
   padding: 1em;
 }
 
+main #formulaire-recherche {
+  display: flex;
+  align-items: center;
+  margin: 1em;
+  gap: 1em;
+}
+main #formulaire-recherche input[type=submit] {
+  background-color: #006896;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  color: #FFF;
+  cursor: pointer;
+  margin-left: auto;
+}
+main #formulaire-recherche input[type=submit]:hover {
+  background: #008bc9;
+}
 main #parametres {
   display: flex;
   width: 100%;
@@ -94,6 +112,9 @@ main input[type=text] {
   background-color: #FFF;
   border-radius: 1rem;
   padding: 1rem;
+}
+main #recherche {
+  width: 60%;
 }
 main #produits {
   display: grid;
@@ -109,10 +130,18 @@ main #produits .article {
   padding: 1em;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   text-align: center;
+  position: relative;
 }
-main #produits .article:hover {
-  background: #F5F5F5;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+main #produits .article .filtre {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+}
+main #produits .article .filtre:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /*# sourceMappingURL=index.css.map */
