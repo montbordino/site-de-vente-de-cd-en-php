@@ -23,7 +23,11 @@
     <div class="login-info">
         <?php
 
-        if (isset($_SESSION['email'])) {
+        if (isset($_SESSION['email']) || isset($_COOKIE['email'])) {
+            if (isset($_COOKIE['email'])) { // si l'utilisateur a coché la case "se souvenir de moi"
+                $_SESSION['email'] = $_COOKIE['email'];
+                $_SESSION['id'] = $_COOKIE['id'];
+            }
             $lien_connexion .= 'deconnexion.php';
             echo "<a href=$lien_connexion>Connecté avec " . $_SESSION['email'] . ".</a>";
         } else {

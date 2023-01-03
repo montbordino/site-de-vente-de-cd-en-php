@@ -53,12 +53,14 @@
         $result = $stmt->fetchAll();
         // si le client existe dans la bd
         if(count($result) == 1){
-                // on ajoute l'email dans la variable de session
+                // on ajoute l'email et l'id dans des variables de session
                 $_SESSION["email"] = $email;
+                $_SESSION["id"] = $result[0]["ID_CLIENT"];
                 // si l'utilisateur a coché la case "se souvenir de moi"
                 if(!empty($_POST["remember"])) {
                     // on ajoute l'email dans le cookie
                     setcookie("email", $email, time() + 3600);
+                    setcookie("id", $result[0]["ID_CLIENT"], time() + 3600);
                 }
                 // on redirige vers la page d'accueil
                 header("Location: ../../index.php");
