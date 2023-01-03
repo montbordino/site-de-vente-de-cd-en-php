@@ -10,6 +10,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Détails cd</title>
+    <link rel="stylesheet" type="text/css" href="../../public/scss/detail_cd.css">
 </head>
 <body>
     <?php
@@ -27,21 +28,24 @@
     $requete->execute();
     $resultat = $requete->fetch(PDO::FETCH_ASSOC);
     echo "<main>";
-        echo '<img src=../../' . $resultat['IMAGE'] .' alt="couverture du cd" width="200px">';
-        echo '<div class="informations">';
-            echo '<h3> Titre : ' . $resultat['TITRE'] . '</h3>';
-            echo '<p> Artiste : ' . $resultat['ARTISTE'] . '</p>';
-            echo '<p> Prix : ' . $resultat['PRIX'] . '€</p>';
-            echo '<p> Genre : ' . $resultat['GENRE'] . '</p>';
-        echo '</div>';
+        echo '<img src=../../' . $resultat['IMAGE'] .' alt="couverture du cd">';
+        echo '<div id="partie-droite">';
+            echo '<section class="informations">';
+                echo '<h1> ' . $resultat['TITRE'] . '</h1>';
+                echo '<p> ' . $resultat['ARTISTE'] . '</p>';
+                echo '<p> ' . $resultat['PRIX'] . '€</p>';
+                echo '<p> Genre : ' . $resultat['GENRE'] . '</p>';
+            echo '</section>';
     ?>
-        <form action="ajout_panier.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $resultat['ID']; ?>">
-            <label for="quantite">Quantité</label>
-            <input type="number" name"quantite" value="1" min="1" max="10">
-            <br> <br>
-            <input type="submit" value="Ajouter au panier">
-        </form>
+        <section class="formulaire">
+            <form action="ajout_panier.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $resultat['ID']; ?>">
+                <label for="quantite">Quantité</label>
+                <input type="number" name"quantite" value="1" min="1" max=<?php echo min(10, $resultat['QUANTITE']);?>>
+                <br> <br>
+                <input type="submit" value="Ajouter au panier">
+            </form>
+        </section>
     </main>
 </body>
 </html>
