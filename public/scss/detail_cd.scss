@@ -6,11 +6,15 @@ main{
   height: calc(100vh - 100px);
   box-sizing: border-box;
   justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
 
   img{
     border: 3px solid $gris-clair;
     @media (min-width: 820px) {
-      max-width: 50%;
+      height: 80%;
+      aspect-ratio: 1/1;
     }
   }
 

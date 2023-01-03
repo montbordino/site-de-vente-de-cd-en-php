@@ -41,9 +41,9 @@
             <form action="ajout_panier.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $resultat['ID']; ?>">
                 <label for="quantite">Quantité</label>
-                <input type="number" name"quantite" value="1" min="1" max=<?php echo min(10, $resultat['QUANTITE']);?>>
+                <input type="number" name="quantite" value="1" min="1" max=<?php echo min(10, $resultat['QUANTITE']);?>>
                 <br> <br>
-                <input type="submit" value="Ajouter au panier">
+                <input type="submit" name="submit" value="Ajouter au panier">
             </form>
         </section>
     </main>

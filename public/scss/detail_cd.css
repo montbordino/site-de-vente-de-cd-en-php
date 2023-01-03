@@ -22,13 +22,17 @@ main {
   height: calc(100vh - 100px);
   box-sizing: border-box;
   justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
 }
 main img {
   border: 3px solid #F5F5F5;
 }
 @media (min-width: 820px) {
   main img {
-    max-width: 50%;
+    height: 80%;
+    aspect-ratio: 1/1;
   }
 }
 main #partie-droite {
