@@ -42,11 +42,22 @@
                 }
                 else{
                     $erreur = "connexion a la base de donnees echouee";
-                    header("Location: ". $_SERVER['HTTP_REFERER']. "?erreur=".$erreur);
+                    if(strpos($_SERVER['HTTP_REFERER'], "?") !== false){
+                        header("Location: ". $_SERVER['HTTP_REFERER']. "&erreur=Vous devez vous connecter pour acceder a votre panier");
+                    }
+                    else{
+                        header("Location: ". $_SERVER['HTTP_REFERER']. "?erreur=Vous devez vous connecter pour acceder a votre panier");
+                    }
                 }
             }
             else {
-                header("Location: ". $_SERVER['HTTP_REFERER']. "?erreur=Vous devez vous connecter pour acceder a votre panier");
+                $erreur = "Vous devez vous connecter pour acceder a votre panier";
+                if(strpos($_SERVER['HTTP_REFERER'], "?") !== false){
+                    header("Location: ". $_SERVER['HTTP_REFERER']. "&erreur=Vous devez vous connecter pour acceder a votre panier");
+                }
+                else{
+                    header("Location: ". $_SERVER['HTTP_REFERER']. "?erreur=Vous devez vous connecter pour acceder a votre panier");
+                }
             }
             ?>
         </div>

@@ -41,16 +41,22 @@ require_once('src/BD/ouverture_bd.php');
     </div>
 
     <main id="main">
-            <form id="formulaire-recherche" method="post">
+            <form id="formulaire-recherche" method="post" action="src/php/filtre_nom.php">
                 <label for="recherche">Recherche</label>
-                <input type="text" name="recherche" id="recherche">
-                <input type="submit" value="Rechercher" onclick="location.reload()">
+                <input type="text" name="recherche" value="<?php echo $_GET['recherche'] ?? "" ?>">
+                <input type="submit" name="submit">
             </form>
 
             <section id="produits">
                 <?php
                 if (!empty($bd)) { // si l'ouverture de la base de données a réussi
-                    $requete = $bd->query('SELECT * FROM CD');
+                    if(isset($_SESSION['sql'])) {
+                        $sql = $_SESSION['sql'];
+                        unset($_SESSION['sql']);
+                    } else {
+                        $sql = 'SELECT * FROM CD WHERE QUANTITE > 0 ORDER BY TITRE';
+                    }
+                    $requete = $bd->query($sql);
                     $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($resultat as $cd) {
                         echo '<div class="article">';

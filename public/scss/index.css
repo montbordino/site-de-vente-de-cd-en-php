@@ -74,7 +74,7 @@ main #content {
 main #formulaire-recherche {
   display: flex;
   align-items: center;
-  margin: 1em;
+  margin: 1em 4em;
   gap: 1em;
 }
 main #formulaire-recherche input[type=submit] {
@@ -88,13 +88,6 @@ main #formulaire-recherche input[type=submit] {
 }
 main #formulaire-recherche input[type=submit]:hover {
   background: #008bc9;
-}
-main #parametres {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  box-sizing: border-box;
-  padding: 2em 1em;
 }
 main input[type=text] {
   width: 60%;
