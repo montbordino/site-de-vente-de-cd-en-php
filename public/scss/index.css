@@ -62,16 +62,6 @@ button:hover {
   background: #008bc9;
 }
 
-main aside {
-  box-sizing: border-box;
-  margin: 0.5em;
-  float: left;
-  width: calc(30% - 1em);
-  height: 100%;
-  background-color: #87CEEB;
-  padding: 0.5em;
-  border-radius: 1em;
-}
 main #content {
   box-sizing: border-box;
   float: right;
@@ -107,14 +97,11 @@ main #parametres {
   padding: 2em 1em;
 }
 main input[type=text] {
-  width: 100%;
+  width: 60%;
   height: 2rem;
   background-color: #FFF;
   border-radius: 1rem;
   padding: 1rem;
-}
-main #recherche {
-  width: 60%;
 }
 main #produits {
   display: grid;

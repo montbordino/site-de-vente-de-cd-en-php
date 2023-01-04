@@ -3,7 +3,6 @@
 
 include_once('src/php/header.php');
 require_once('src/BD/ouverture_bd.php');
-
 ?>
 <script>
     // ce script garde la position de scroll de la page lors du chargement de la page.
@@ -15,6 +14,7 @@ require_once('src/BD/ouverture_bd.php');
     window.onbeforeunload = function() {
         localStorage.setItem('posY', window.scrollY);
     };
+
 </script>
 
 <!doctype html>
@@ -37,50 +37,10 @@ require_once('src/BD/ouverture_bd.php');
             <br> <br>
             <p>Si vous cherchez des cd vous êtes au bon endroit</p>
             <br> <br>
-            <a href="#main"><button> commencer mes achats </button></a>
         </div>
     </div>
 
     <main id="main">
-        <aside>
-            <h2>Filtres</h2>
-            <form>
-                <label for="genre">Genre</label>
-                <select name="genre" id="genre">
-                    <option value="rock">Rock</option>
-                    <option value="pop">Pop</option>
-                    <option value="rap">Rap</option>
-                    <option value="classique">Classique</option>
-                    <option value="jazz">Jazz</option>
-                    <option value="metal">Metal</option>
-                    <option value="reggae">Reggae</option>
-                    <option value="electro">Electro</option>
-                    <option value="variété">Variété</option>
-                </select>
-                <br> <br>
-                <label for="ordre">Trier par</label>
-                <select name="ordre" id="ordre">
-                    <option value="prix">Prix croissant</option>
-                    <option value="prix">Prix décroissant</option>
-                </select>
-                <br> <br>
-
-                <label for="prix">Prix</label>
-                <select name="prix" id="prix">
-                    <option value="0-20">0-20€</option>
-                    <option value="20-50">20-50€</option>
-                    <option value="50-100">50-100€</option>
-                    <option value="+100">+100</option>
-                </select>
-                <br> <br>
-
-                <label for="artiste">Artiste</label>
-                <input type="text" name="artiste" id="artiste">
-                <br> <br>
-                <input type="submit" value="Appliquer">
-            </form>
-        </aside>
-        <div id="content">
             <form id="formulaire-recherche" method="post">
                 <label for="recherche">Recherche</label>
                 <input type="text" name="recherche" id="recherche">
@@ -105,13 +65,12 @@ require_once('src/BD/ouverture_bd.php');
                         echo '</div>';
                     }
                 }
-
                 else {
-                    echo 'erreur de connexion à la base de données';
+                    echo 'Erreur de connexion à la base de données';
                 }
                 ?>
             </section>
-        </div>
     </main>
 </body>
 </html>
+
