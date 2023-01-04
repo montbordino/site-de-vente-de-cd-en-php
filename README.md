@@ -16,7 +16,7 @@ Il est réalisé dans le but de mettre en œuvre toutes les compétences acquise
 - [x] 9/13  Créer la page de paiement
 - [x] 10/13 Créer les filtres de recherche
 - [x] 11/13 Créer la page de création d'un cd
-- [ ] 12/13 Passer le code sur eparla
+- [x] 12/13 Passer le code sur eparla
 - [ ] 13/13 créer un acces administrateur 
 
 ## Améliorations possibles

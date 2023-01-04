@@ -1,3 +1,4 @@
+<?php include_once("header.php")?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -8,7 +9,6 @@
     <title>Achat</title>
 </head>
 <body>
-    <?php include_once("header.php")?>
     <h1>Confirmation de commande</h1>
     <p>Votre commande chez CD SHOP a bien été prise en compte. Vous avez reçu un mail détaillant votre commande à l'adresse suivante: <?php echo $_SESSION['email']?></p>
 

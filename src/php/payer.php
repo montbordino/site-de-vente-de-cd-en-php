@@ -1,3 +1,7 @@
+<?php
+    include_once("header.php");
+    require_once("../BD/ouverture_bd.php");
+    ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -9,11 +13,6 @@
     <link rel="stylesheet" href="../../public/scss/payer.css">
 </head>
 <body>
-    <?php
-    include_once("header.php");
-    require_once("../BD/ouverture_bd.php");
-    ?>
-
     <main>
         <section id="recap">
             <h1>Votre commande</h1>

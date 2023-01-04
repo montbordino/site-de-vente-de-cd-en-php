@@ -1,8 +1,8 @@
 <?php
-    require_once("../BD/ouverture_bd.php");
     if(session_status() == PHP_SESSION_NONE){
         session_start();
     }
+    require_once("../BD/ouverture_bd.php");
 
 
     if (isset($_POST["submit"])) {
@@ -22,7 +22,7 @@
                         $stmt->execute(['id_client' => $_SESSION['id']]);
                         $stmt->closeCursor();
 
-                        mail($_POST["email"], "Confirmation de commande", "Votre commande chez CD SHOP a bien été prise en compte. Vous recevrez un mail de confirmation de la part de notre partenaire de livraison.");
+                        //mail($_POST["email"], "Confirmation de commande", "Votre commande chez CD SHOP a bien été prise en compte. Vous recevrez un mail de confirmation de la part de notre partenaire de livraison.");
                         header("Location: resultat_payer.php");
                     }
 

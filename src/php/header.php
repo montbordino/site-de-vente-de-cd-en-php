@@ -1,24 +1,25 @@
-<?php if(session_status() === PHP_SESSION_NONE) session_start();
-            // ici on gere les liens utilisé dans le header en fonction du fichier qui l'appel
-            $emplacement = debug_backtrace()[0]['file']; // path absolut du fichier appelant header.php
-            $dernier_dir = basename(dirname($emplacement)); // dossier contenant le fichier appelant header.php
-            if ($dernier_dir == "php"){
-                $lien_connexion = "";
-                $lien_logo = "../../index.php";
-                $img_logo = "../../public/images/logo.png";
-                $img_caddie =  "../../public/images/caddie.svg";
-                $lien_caddie = "panier.php";
-                $scss = "../../public/scss/header.css";
-            }
-            else { // le fichier est index.php
-                $lien_connexion = "src/php/";
-                $lien_logo = "index.php";
-                $img_logo = "public/images/logo.png";
-                $img_caddie =  "public/images/caddie.svg";
-                $lien_caddie = "src/php/panier.php";
-                $scss = "public/scss/header.css";
-            }
-            ?>
+<?php 
+if(session_status() === PHP_SESSION_NONE) session_start();
+    // ici on gere les liens utilisé dans le header en fonction du fichier qui l'appel
+    $emplacement = debug_backtrace()[0]['file']; // path absolut du fichier appelant header.php
+    $dernier_dir = basename(dirname($emplacement)); // dossier contenant le fichier appelant header.php
+    if ($dernier_dir == "php"){
+        $lien_connexion = "";
+        $lien_logo = "../../index.php";
+        $img_logo = "../../public/images/logo.png";
+        $img_caddie =  "../../public/images/caddie.svg";
+        $lien_caddie = "panier.php";
+        $scss = "../../public/scss/header.css";
+    }
+    else { // le fichier est index.php
+        $lien_connexion = "src/php/";
+        $lien_logo = "index.php";
+        $img_logo = "public/images/logo.png";
+        $img_caddie =  "public/images/caddie.svg";
+        $lien_caddie = "src/php/panier.php";
+        $scss = "public/scss/header.css";
+    }
+    ?>
 <link rel="stylesheet" type="text/css" href=<?php echo $scss; ?>>
 <header>
     <div class="logo">

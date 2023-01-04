@@ -10,39 +10,42 @@
      */
 
     // ouverture de la base de données utilisable avec '$bd'
+    if(session_status() === PHP_SESSION_NONE) session_start();
+
     require_once('../BD/ouverture_bd.php');
-if (isset($_POST["submit"])) {
-    $email = $_POST["email"];
-    $password = hash("sha256", $_POST["password"]);
-    if (!empty($bd)) { // si l'ouverture de la base de données a réussi
-        $stmt = $bd->prepare("SELECT * FROM CLIENT WHERE EMAIL = :email AND MOT_DE_PASSE = :password");
-    } else {
-        echo "Erreur d'ouverture de la base de données";
-        die();
-    }
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':password', $password);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    // si le client existe dans la bd
-    if (count($result) == 1) {
-        // on ajoute l'email et l'id dans des variables de session
-        $_SESSION["email"] = $email;
-        $_SESSION["id"] = $result[0]["ID"];
-        // si l'utilisateur a coché la case "se souvenir de moi"
-        if (!empty($_POST["remember"])) {
-            // on ajoute l'email dans le cookie
-            setcookie("email", $email, time() + 3600);
-            setcookie("id", $result[0]["ID"], time() + 3600);
+
+    if (isset($_POST["submit"])) {
+        $email = $_POST["email"];
+        $password = hash("sha256", $_POST["password"]);
+        if (!empty($bd)) { // si l'ouverture de la base de données a réussi
+            $stmt = $bd->prepare("SELECT * FROM CLIENT WHERE EMAIL = :email AND MOT_DE_PASSE = :password");
+        } else {
+            echo "Erreur d'ouverture de la base de données";
+            die();
         }
-        // on redirige vers la page d'accueil
-        header("Location: ../../index.php");
-    } else {
-        echo "adresse mail ou mot de passe incorrect";
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        // si le client existe dans la bd
+        if (count($result) == 1) {
+            // on ajoute l'email et l'id dans des variables de session
+            $_SESSION["email"] = $email;
+            $_SESSION["id"] = $result[0]["ID"];
+
+            // si l'utilisateur a coché la case "se souvenir de moi"
+            if (!empty($_POST["remember"])) {
+                // on ajoute l'email dans le cookie
+                setcookie("email", $email, time() + 3600);
+                setcookie("id", $result[0]["ID"], time() + 3600);
+            }
+            // on redirige vers la page d'accueil
+            header("Location: ../../index.php");
+        } else {
+            echo "adresse mail ou mot de passe incorrect";
+        }
     }
-}
         include_once('header.php');
-    
      ?>
 
     

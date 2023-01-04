@@ -3,6 +3,7 @@
 
 include_once('src/php/header.php');
 require_once('src/BD/ouverture_bd.php');
+
 ?>
 <script>
     // ce script garde la position de scroll de la page lors du chargement de la page.
@@ -29,7 +30,7 @@ require_once('src/BD/ouverture_bd.php');
 </head>
 <body>
    
-
+    
     <div class="sous-header">
         <div class="bg">
             <img src="public/images/bg_index.jpeg" alt="image floue de cds">
