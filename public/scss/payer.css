@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #FFF;
+}
+
+main {
+  max-width: 1000px;
+  margin: 2em auto;
+}
+
+#recap {
+  background: #87CEEB;
+  padding: 1em;
+  border-radius: 1em;
+}
+#recap #achats > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+  margin: 1em;
+}
+
+#payement {
+  margin: auto;
+  text-align: center;
+  background: #87CEEB;
+  padding: 1em;
+  border-radius: 1em;
+  width: 100%;
+}
+#payement form > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#payement input[type=text], #payement input[type=email], #payement input[type=tel], #payement input[type=date] {
+  padding: 1em;
+  border-radius: 1em;
+  border: 1px solid #87CEEB;
+  margin: 1em 0;
+}
+
+/*# sourceMappingURL=payer.css.map */
