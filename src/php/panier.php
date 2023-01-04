@@ -65,11 +65,11 @@
                         $item['PRIX'] = str_replace(',', '.', $item['PRIX']);
                         $resultat += floatval($item['PRIX']) * floatval($item['QTE']);
                     }
+                $_SESSION["total"] = $resultat; // on stocke le total dans une variable de session
             ?>
-            <form method="post" action=<?php echo "payer.php?total=" . $resultat ?>>
+            <form method="post" action="payer.php">
                 <h1>Mon panier</h1>
                 <div id="total">
-                    <input type="hidden" name="total" value="<?php echo $resultat; ?>">
                     <p >Total : <?php  echo $resultat ?> </p>
                     <input type="submit" name="submit" value="Valider mon panier">
                 </div>
