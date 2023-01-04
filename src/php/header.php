@@ -1,29 +1,34 @@
-<header>
-    <link rel="stylesheet" type="text/css" href="../../public/scss/header.css">
-    <div class="logo">
-        <?php
-            if(session_status() == PHP_SESSION_NONE){
-                    session_start();
-            }
-
+<?php if(session_status() === PHP_SESSION_NONE) session_start();
+            // ici on gere les liens utilisé dans le header en fonction du fichier qui l'appel
             $emplacement = debug_backtrace()[0]['file']; // path absolut du fichier appelant header.php
             $dernier_dir = basename(dirname($emplacement)); // dossier contenant le fichier appelant header.php
             if ($dernier_dir == "php"){
                 $lien_connexion = "";
-                $lien_img = "../../index.php";
+                $lien_logo = "../../index.php";
+                $img_logo = "../../public/images/logo.png";
+                $img_caddie =  "../../public/images/caddie.svg";
                 $lien_caddie = "panier.php";
+                $scss = "../../public/scss/header.css";
             }
             else { // le fichier est index.php
                 $lien_connexion = "src/php/";
-                $lien_img = "index.php";
+                $lien_logo = "index.php";
+                $img_logo = "public/images/logo.png";
+                $img_caddie =  "public/images/caddie.svg";
                 $lien_caddie = "src/php/panier.php";
+                $scss = "public/scss/header.css";
             }
-            echo  "<a href=$lien_img><img src='../../public/images/logo.png' alt='Logo'></a>";
             ?>
+<link rel="stylesheet" type="text/css" href=<?php echo $scss; ?>>
+<header>
+    <div class="logo">
+        <?php
+            echo  "<a href=$lien_logo><img src=$img_logo alt='Logo'></a>";
+        ?>
     </div>
     <nav>
         <!-- affichage du pannier -->
-        <a href=<?php echo $lien_caddie ;?> ><img src='../../public/images/caddie.svg' alt='caddie'></a>
+        <a href=<?php echo $lien_caddie ;?> ><img src=<?php echo $img_caddie ?> alt='caddie'></a>
 
         <!-- affichage du bouton connexion -->
         <div class="login-info">

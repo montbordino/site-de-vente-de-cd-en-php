@@ -28,6 +28,8 @@ require_once('src/BD/ouverture_bd.php');
     <title>Accueil</title>
 </head>
 <body>
+   
+
     <div class="sous-header">
         <div class="bg">
             <img src="public/images/bg_index.jpeg" alt="image floue de cds">

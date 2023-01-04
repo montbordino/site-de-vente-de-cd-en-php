@@ -1,7 +1,9 @@
-<!-- Affiche les détails d'un CD renseigné par son id
-     paramètres : ID ⇾ id du CD
-    -->
-
+<?php 
+    // Affiche les détails d'un CD renseigné par son id
+    // paramètres : ID ⇾ id du CD
+   
+    include_once('header.php');
+    require_once('../BD/ouverture_bd.php'); ?> 
 <!doctype html>
 <html lang="fr">
 <head>
@@ -14,8 +16,6 @@
 </head>
 <body>
     <?php
-    include_once("header.php");
-    require_once("../BD/ouverture_bd.php");
     $id = $_GET['id'];
     if (!empty($bd)) { // si l'ouverture de la base de données a réussi
         $sql = "SELECT * FROM CD WHERE ID = :id";
