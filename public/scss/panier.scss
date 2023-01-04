@@ -1,0 +1,74 @@
+@import "variables.scss";
+
+/* structure du code
+<main>
+        <div id="articles">
+            <!-- tous les articles sous la forme:
+                  image, titre, quantité, prix -->
+        </div>
+        <aside>
+            <h2>Mon panier</h2>
+            <div id="total">
+                <p>Total : </p>
+                <p>0 €</p>
+            </div>
+            <button>Valider mon panier</button>
+    </main>
+ */
+
+main{
+  max-width: 1000px;
+  margin: 2em auto;
+  display: flex;
+  column-gap: 1em;
+    justify-content: space-around;
+}
+
+#articles{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 1em;
+    height: calc(100vh - 200px);
+    width: 500px;
+    overflow-y: scroll;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: $gris-clair;
+
+
+    &>div{
+      flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: $gris-clair;
+
+      img{
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+      }
+      .informations {
+        display: inline-block;
+        text-align: center;
+        width: calc(100% - 200px);
+      }
+    }
+}
+input[type="submit"] {
+  background-color: $bleu;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  color: $blanc;
+  cursor: pointer;
+  margin-left: auto;
+
+  &:hover {
+    background: lighten($bleu, 10%);
+  }
+}
