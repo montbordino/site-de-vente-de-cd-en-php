@@ -1,0 +1,63 @@
+@import "variables.scss";
+
+main{
+  max-width: 1000px;
+  margin: 2em auto;
+}
+
+#recap {
+  background: $bleu-clair;
+  padding: 1em;
+    border-radius: 1em;
+
+  & #achats >div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+    margin: 1em;
+
+  }
+}
+
+#payement {
+
+  margin: 1em auto;
+  text-align: center;
+  background: $bleu-clair;
+  box-sizing: border-box;
+  padding: 1em;
+  border-radius: 1em;
+  width: 100%;
+
+  & form > div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    max-width: 400px;
+    margin: 0.5em auto;
+  }
+
+  input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+    padding: 0.25em 0.5em;
+    border-radius: 1em;
+    border: 1px solid $bleu-clair;
+  }
+
+  input[type="submit"] {
+    background: $bleu;
+    border: 1px solid $noir;
+    border-radius: 1em;
+    padding: 1em 3em;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    grid-column: span 2;
+    margin: auto;
+
+    &:hover {
+      background: lighten($bleu, 10%);
+    }
+
+  }
+}
+

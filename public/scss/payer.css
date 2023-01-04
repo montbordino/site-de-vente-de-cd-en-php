@@ -34,9 +34,10 @@ main {
 }
 
 #payement {
-  margin: auto;
+  margin: 1em auto;
   text-align: center;
   background: #87CEEB;
+  box-sizing: border-box;
   padding: 1em;
   border-radius: 1em;
   width: 100%;
@@ -44,12 +45,28 @@ main {
 #payement form > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  text-align: center;
+  max-width: 400px;
+  margin: 0.5em auto;
 }
 #payement input[type=text], #payement input[type=email], #payement input[type=tel], #payement input[type=date] {
-  padding: 1em;
+  padding: 0.25em 0.5em;
   border-radius: 1em;
   border: 1px solid #87CEEB;
-  margin: 1em 0;
+}
+#payement input[type=submit] {
+  background: #006896;
+  border: 1px solid #222;
+  border-radius: 1em;
+  padding: 1em 3em;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  grid-column: span 2;
+  margin: auto;
+}
+#payement input[type=submit]:hover {
+  background: #008bc9;
 }
 
 /*# sourceMappingURL=payer.css.map */
