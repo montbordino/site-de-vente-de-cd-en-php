@@ -5,19 +5,20 @@ Ce projet est un site de vente en ligne de CD. Il est réalisé en PHP, HTML, CS
 Il est réalisé dans le but de mettre en œuvre toutes les compétences acquises pendant les tps de PHP.
 
 ## TODO
-- [x] 1/13  Créer la base de données en local
-- [x] 2/13  Se connecter à la base de données en PHP
-- [x] 3/13  Créer une page de connexion pour les clients ( login et mot de passe )
-- [x] 4/13  Créer une page d'inscription pour les clients
-- [x] 5/13  Créer la page d'accueil
-- [x] 6/13  Remplir la page d'accueil avec les informations de la base de données
-- [x] 7/13  Créer la page de détail d'un CD
-- [ ] 8/13  Créer la page de panier
-- [ ] 9/13  Créer la page de paiement
-- [ ] 10/13 Créer la page de confirmation de paiement
-- [x] 11/13 Créer la page de création d'un cd
-- [ ] 12/13 Passer la base de données sur lakarxela
-- [ ] 13/13 Connecter le site à la base de données sur lakarxela
+- [x] 1/14  Créer la base de données en local
+- [x] 2/14  Se connecter à la base de données en PHP
+- [x] 3/14  Créer une page de connexion pour les clients ( login et mot de passe )
+- [x] 4/14  Créer une page d'inscription pour les clients
+- [x] 5/14  Créer la page d'accueil
+- [x] 6/14  Remplir la page d'accueil avec les informations de la base de données
+- [x] 7/14  Créer la page de détail d'un CD
+- [x] 8/14  Créer la page de panier
+- [x] 9/14  Créer la page de paiement
+- [x] 10/14 Créer les filtres de recherche
+- [x] 11/14 Créer la page de création d'un cd
+- [ ] 12/14 Passer la base de données sur lakarxela
+- [ ] 13/14 Connecter le site à la base de données sur lakarxela
+- [ ] 14/14 créer un acces administrateur 
 
 ## Améliorations possibles
 
