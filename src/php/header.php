@@ -10,6 +10,9 @@ if(session_status() === PHP_SESSION_NONE) session_start();
         $img_caddie =  "../../public/images/caddie.svg";
         $lien_caddie = "panier.php";
         $scss = "../../public/scss/header.css";
+        $creer_cd = "creer_cd.php";
+        $gerer_utilisateurs = "gerer_utilisateurs.php";
+        $gerer_cd = "gerer_cd.php";
     }
     else { // le fichier est index.php
         $lien_connexion = "src/php/";
@@ -18,6 +21,9 @@ if(session_status() === PHP_SESSION_NONE) session_start();
         $img_caddie =  "public/images/caddie.svg";
         $lien_caddie = "src/php/panier.php";
         $scss = "public/scss/header.css";
+        $creer_cd = "src/php/creer_cd.php";
+        $gerer_utilisateurs = "src/php/gerer_utilisateurs.php";
+        $gerer_cd = "src/php/gerer_cd.php";
     }
     ?>
 <link rel="stylesheet" type="text/css" href=<?php echo $scss; ?>>
@@ -28,6 +34,17 @@ if(session_status() === PHP_SESSION_NONE) session_start();
         ?>
     </div>
     <nav>
+        <?php // acces administrateur (email: admin@admin.com / mdp: admin) 
+        if(isset($_SESSION['email']) == "admin@admin.com"){
+            if ($_SESSION['email'] == "admin@admin.com") {
+                echo "<a href= $creer_cd> creer_cd.php </a>";
+                echo "<a href= $gerer_utilisateurs> gerer_utilisateurs.php </a>";
+                echo "<a href= $gerer_cd> gerer_cd.php </a>";
+            }
+        }
+        
+        ?>
+    
         <!-- affichage du pannier -->
         <a href=<?php echo $lien_caddie ;?> ><img src=<?php echo $img_caddie ?> alt='caddie'></a>
 
