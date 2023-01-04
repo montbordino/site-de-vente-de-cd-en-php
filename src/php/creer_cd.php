@@ -10,6 +10,7 @@
 
 
     include_once('../BD/ouverture_bd.php');
+    include_once("header.php");
 ?>
 
 <!doctype html>
